@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World!</h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>ELEVEN | Style Beyond Limits</title>
+<meta name="description" content="ELEVEN - Fashion premium modern dengan koleksi terbaik untuk pria dan wanita. Style Beyond Limits.">
+<meta property="og:title" content="ELEVEN | Style Beyond Limits">
+<meta property="og:description" content="Fashion premium modern dengan desain eksklusif dan kualitas terbaik.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   ROOT
+========================================================= */
+:root{
+    --black:#0f0f0f;
+    --white:#ffffff;
+    --gold:#d4af37;
+    --gold-light:#f0d36a;
+    --gray:#f5f5f5;
+    --text:#333;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --radius:18px;
+}
+
+.dark{
+    --black:#ffffff;
+    --white:#111111;
+    --gray:#1b1b1b;
+    --text:#f0f0f0;
+    --shadow:0 10px 30px rgba(255,255,255,.05);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--white);
+    color:var(--text);
+    transition:.3s;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:min(1400px,92%);
+    margin:auto;
+}
+
+section{
+    padding:80px 0;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+#loader{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.loader-circle{
+    width:70px;
+    height:70px;
+    border:5px solid rgba(255,255,255,.2);
+    border-top:5px solid var(--gold);
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,.95);
+    backdrop-filter:blur(10px);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    color:var(--gold);
+    font-size:32px;
+    font-weight:800;
+    letter-spacing:5px;
+}
+
+.logo span{
+    color:white;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.right-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.cart-badge{
+    background:var(--gold);
+    color:black;
+    padding:8px 14px;
+    border-radius:50px;
+    font-weight:700;
+}
+
+.dark-toggle{
+    cursor:pointer;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+}
+
+.menu-toggle{
+    display:none;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=80");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:72px;
+    letter-spacing:5px;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:22px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-gold{
+    background:var(--gold);
+    color:black;
+}
+
+.btn-gold:hover{
+    transform:translateY(-4px);
+}
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:42px;
+    color:var(--gold);
+}
+
+/* =========================================================
+   FILTER
+========================================================= */
+.toolbar{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:30px;
+}
+
+.toolbar input,
+.toolbar select{
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    min-width:220px;
+}
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.product{
+    background:var(--white);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-8px);
+}
+
+.product img{
+    height:340px;
+    object-fit:cover;
+}
+
+.product-body{
+    padding:18px;
+}
+
+.badge{
+    color:var(--gold);
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.price{
+    color:var(--gold);
+    font-size:22px;
+    font-weight:700;
+    margin:10px 0;
+}
+
+.product button{
+    width:100%;
+}
+
+/* =========================================================
+   FEATURED
+========================================================= */
+.featured{
+    background:var(--gray);
+}
+
+/* =========================================================
+   CART
+========================================================= */
+.cart{
+    background:var(--gray);
+}
+
+.cart-box{
+    background:var(--white);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #eee;
+    padding:15px 0;
+    gap:10px;
+}
+
+.qty-controls{
+    display:flex;
+    gap:5px;
+}
+
+.qty-controls button{
+    padding:6px 10px;
+    border:none;
+    cursor:pointer;
+}
+
+.total{
+    font-size:26px;
+    color:var(--gold);
+    font-weight:700;
+    margin-top:20px;
+}
+
+.cart-actions{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+/* =========================================================
+   CHECKOUT MODAL
+========================================================= */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    width:100%;
+    max-width:700px;
+    max-height:90vh;
+    overflow:auto;
+    border-radius:20px;
+    padding:25px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+.modal-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+.about{
+    background:#111;
+    color:white;
+    text-align:center;
+}
+
+/* =========================================================
+   TESTIMONIAL
+========================================================= */
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.testimonial{
+    background:var(--white);
+    padding:25px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.contact-card{
+    background:var(--white);
+    padding:25px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    text-align:center;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer{
+    background:#000;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.socials{
+    margin:15px 0;
+}
+
+.socials a{
+    color:var(--gold);
+    margin:0 10px;
+}
+
+/* =========================================================
+   SCROLL TOP
+========================================================= */
+#topBtn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:var(--gold);
+    cursor:pointer;
+    display:none;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+@media(max-width:900px){
+
+.nav-links{
+    position:fixed;
+    top:70px;
+    left:-100%;
+    width:100%;
+    background:black;
+    flex-direction:column;
+    text-align:center;
+    padding:30px;
+    transition:.3s;
+}
+
+.nav-links.active{
+    left:0;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+.hero h1{
+    font-size:48px;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+<div class="loader-circle"></div>
+</div>
+
+<!-- HEADER -->
+<header>
+<div class="container navbar">
+
+<div class="logo">ELEVEN<span>.</span></div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#products">Produk</a></li>
+<li><a href="#about">Tentang</a></li>
+<li><a href="#contact">Kontak</a></li>
+</ul>
+
+<div class="right-actions">
+<button class="dark-toggle" id="darkToggle">🌙</button>
+<div class="cart-badge">🛒 <span id="cartCount">0</span></div>
+<div class="menu-toggle" id="menuToggle">☰</div>
+</div>
+
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="container">
+<h1>ELEVEN</h1>
+<p>Style Beyond Limits</p>
+<a href="#products" class="btn btn-gold">Belanja Sekarang</a>
+</div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured">
+<div class="container">
+<div class="section-title">
+<h2>Produk Unggulan</h2>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+<div class="container">
+
+<div class="section-title">
+<h2>Katalog Produk</h2>
+</div>
+
+<div class="toolbar">
+<input type="text" id="searchInput" placeholder="Cari Produk...">
+<select id="filterCategory">
+<option value="all">Semua Kategori</option>
+<option value="Pria">Pria</option>
+<option value="Wanita">Wanita</option>
+</select>
+</div>
+
+<div class="products" id="productContainer"></div>
+
+</div>
+</section>
+
+<!-- CART -->
+<section class="cart">
+<div class="container">
+
+<div class="section-title">
+<h2>Keranjang Belanja</h2>
+</div>
+
+<div class="cart-box">
+
+<div id="cartItems">
+Belum ada produk.
+</div>
+
+<div class="total">
+Total: Rp <span id="cartTotal">0</span>
+</div>
+
+<div class="cart-actions">
+<button class="btn btn-gold" onclick="openCheckout()">Checkout</button>
+<button class="btn" onclick="clearCart()">Kosongkan Keranjang</button>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="container">
+<div class="section-title">
+<h2>Tentang Kami</h2>
+</div>
+<p>
+ELEVEN menghadirkan fashion premium modern dengan kualitas terbaik.
+Kami percaya bahwa gaya tidak memiliki batas.
+</p>
+</div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section>
+<div class="container">
+
+<div class="section-title">
+<h2>Testimoni</h2>
+</div>
+
+<div class="testimonials">
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>Produk sangat premium dan nyaman dipakai.</p>
+<b>Andi</b>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>Desain elegan dan kualitas luar biasa.</p>
+<b>Sarah</b>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>Pengiriman cepat dan pelayanan ramah.</p>
+<b>Dewi</b>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+
+<div class="section-title">
+<h2>Kontak</h2>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<h3>WhatsApp</h3>
+<p>+62 838 7262 9113</p>
+</div>
+
+<div class="contact-card">
+<h3>Email</h3>
+<p>hello@elevenfashion.com</p>
+</div>
+
+<div class="contact-card">
+<h3>Alamat</h3>
+<p>Indonesia</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<h3>ELEVEN</h3>
+<div class="socials">
+<a href="#">Instagram</a>
+<a href="#">TikTok</a>
+<a href="#">Facebook</a>
+</div>
+<p>© 2026 ELEVEN. All Rights Reserved.</p>
+</footer>
+
+<!-- SCROLL TOP -->
+<button id="topBtn">↑</button>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="checkoutModal">
+<div class="modal-content">
+
+<h2>Checkout</h2>
+
+<div class="form-group">
+<label>Nama Lengkap</label>
+<input type="text" id="buyerName">
+</div>
+
+<div class="form-group">
+<label>Nomor WhatsApp</label>
+<input type="text" id="buyerPhone">
+</div>
+
+<div class="form-group">
+<label>Alamat Lengkap</label>
+<textarea id="buyerAddress"></textarea>
+</div>
+
+<div class="form-group">
+<label>Ukuran</label>
+<select id="size">
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Warna</label>
+<select id="color">
+<option>Hitam</option>
+<option>Putih</option>
+<option>Navy</option>
+<option>Abu-abu</option>
+<option>Cream</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Model</label>
+<select id="model">
+<option>Oversize</option>
+<option>Regular Fit</option>
+<option>Slim Fit</option>
+<option>Hoodie</option>
+<option>Kaos Polos</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Catatan Tambahan</label>
+<textarea id="note"></textarea>
+</div>
+
+<div class="modal-buttons">
+<button class="btn btn-gold" onclick="confirmOrder()">Kirim Pesanan</button>
+<button class="btn" onclick="cancelCheckout()">Batalkan Checkout</button>
+</div>
+
+</div>
+</div>
+
+<script>
+/* ===========================================
+LOADER
+=========================================== */
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},800);
+});
+
+/* ===========================================
+PRODUCT DATA
+=========================================== */
+const products=[
+{name:"Oversized Black Tee",price:189000,cat:"Pria",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800"},
+{name:"Premium White Shirt",price:249000,cat:"Pria",img:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800"},
+{name:"Urban Hoodie",price:299000,cat:"Pria",img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800"},
+{name:"Polo Exclusive",price:219000,cat:"Pria",img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800"},
+{name:"Elegant Blouse",price:229000,cat:"Wanita",img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800"},
+{name:"Modern Dress",price:349000,cat:"Wanita",img:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800"},
+{name:"Soft Cardigan",price:259000,cat:"Wanita",img:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800"},
+{name:"Casual Tunik",price:239000,cat:"Wanita",img:"https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800"},
+{name:"Street Jacket",price:399000,cat:"Pria",img:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800"},
+{name:"Linen Shirt",price:279000,cat:"Pria",img:"https://images.unsplash.com/photo-1593032465171-8f6e8fef0cfd?auto=format&fit=crop&w=800"},
+{name:"Fashion Sweater",price:289000,cat:"Wanita",img:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800"},
+{name:"Minimalist Outfit",price:319000,cat:"Wanita",img:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800"}
+];
+
+const productContainer=document.getElementById("productContainer");
+
+function renderProducts(list){
+productContainer.innerHTML="";
+list.forEach((p,i)=>{
+productContainer.innerHTML+=`
+<div class="product">
+<img src="${p.img}" alt="${p.name}">
+<div class="product-body">
+<div class="badge">${p.cat}</div>
+<h3>${p.name}</h3>
+<p>Fashion premium berkualitas tinggi.</p>
+<div class="price">Rp ${p.price.toLocaleString("id-ID")}</div>
+<button class="btn btn-gold" onclick="addToCart(${i})">Tambah ke Keranjang</button>
+</div>
+</div>
+`;
+});
+}
+renderProducts(products);
+
+/* ===========================================
+SEARCH & FILTER
+=========================================== */
+document.getElementById("searchInput").addEventListener("input",filterProducts);
+document.getElementById("filterCategory").addEventListener("change",filterProducts);
+
+function filterProducts(){
+const key=document.getElementById("searchInput").value.toLowerCase();
+const cat=document.getElementById("filterCategory").value;
+
+const filtered=products.filter(p=>{
+return p.name.toLowerCase().includes(key) &&
+(cat==="all" || p.cat===cat);
+});
+
+renderProducts(filtered);
+}
+
+/* ===========================================
+CART
+=========================================== */
+let cart=[];
+
+function addToCart(index){
+const item=products[index];
+const existing=cart.find(x=>x.name===item.name);
+
+if(existing){
+existing.qty++;
+}else{
+cart.push({...item,qty:1});
+}
+
+updateCart();
+}
+
+function updateCart(){
+const cartItems=document.getElementById("cartItems");
+const cartCount=document.getElementById("cartCount");
+const cartTotal=document.getElementById("cartTotal");
+
+if(cart.length===0){
+cartItems.innerHTML="Belum ada produk.";
+cartCount.textContent=0;
+cartTotal.textContent=0;
+return;
+}
+
+let total=0;
+let count=0;
+
+cartItems.innerHTML="";
+
+cart.forEach((item,index)=>{
+
+total+=item.price*item.qty;
+count+=item.qty;
+
+cartItems.innerHTML+=`
+<div class="cart-item">
+<div>
+<b>${item.name}</b><br>
+Jumlah: ${item.qty}
+</div>
+
+<div class="qty-controls">
+<button onclick="decreaseQty(${index})">-</button>
+<button onclick="increaseQty(${index})">+</button>
+<button onclick="removeItem(${index})">🗑</button>
+</div>
+</div>
+`;
+});
+
+cartCount.textContent=count;
+cartTotal.textContent=total.toLocaleString("id-ID");
+}
+
+function increaseQty(i){
+cart[i].qty++;
+updateCart();
+}
+
+function decreaseQty(i){
+cart[i].qty--;
+if(cart[i].qty<=0){
+cart.splice(i,1);
+}
+updateCart();
+}
+
+function removeItem(i){
+cart.splice(i,1);
+updateCart();
+}
+
+function clearCart(){
+cart=[];
+updateCart();
+}
+
+/* ===========================================
+CHECKOUT
+=========================================== */
+function openCheckout(){
+if(cart.length===0){
+alert("Keranjang kosong");
+return;
+}
+document.getElementById("checkoutModal").style.display="flex";
+}
+
+function cancelCheckout(){
+
+document.getElementById("buyerName").value="";
+document.getElementById("buyerPhone").value="";
+document.getElementById("buyerAddress").value="";
+document.getElementById("note").value="";
+
+document.getElementById("checkoutModal").style.display="none";
+}
+
+function confirmOrder(){
+
+const name=document.getElementById("buyerName").value.trim();
+const phone=document.getElementById("buyerPhone").value.trim();
+const address=document.getElementById("buyerAddress").value.trim();
+
+if(!name || !phone || !address){
+alert("Lengkapi data pembeli.");
+return;
+}
+
+const size=document.getElementById("size").value;
+const color=document.getElementById("color").value;
+const model=document.getElementById("model").value;
+const note=document.getElementById("note").value;
+
+let total=0;
+let produkText="";
+
+cart.forEach(item=>{
+total+=item.price*item.qty;
+
+produkText += `
+Produk: ${item.name}
+Jumlah: ${item.qty}
+`;
+});
+
+const summary=
+`Nama: ${name}
+No HP: ${phone}
+Alamat: ${address}
+
+${produkText}
+
+Ukuran: ${size}
+Warna: ${color}
+Model: ${model}
+Catatan: ${note}
+
+Total: Rp ${total.toLocaleString("id-ID")}
+`;
+
+if(!confirm(summary + "\n\nKirim pesanan?")){
+return;
+}
+
+let msg=`Halo Admin ELEVEN,
+
+Saya ingin memesan produk berikut:
+
+# ================= DETAIL PESANAN
+
+Nama: ${name}
+
+No HP: ${phone}
+
+Alamat: ${address}
+
+`;
+
+cart.forEach(item=>{
+msg+=`
+Produk: ${item.name}
+
+Jumlah: ${item.qty}
+`;
+});
+
+msg+=`
+
+Ukuran: ${size}
+
+Warna: ${color}
+
+Model: ${model}
+
+Catatan: ${note}
+
+Total Harga: Rp ${total.toLocaleString("id-ID")}
+
+Mohon diproses. Terima kasih.
+`;
+
+window.open(
+`https://wa.me/6283872629113?text=${encodeURIComponent(msg)}`,
+"_blank"
+);
+}
+
+/* ===========================================
+DARK MODE
+=========================================== */
+document.getElementById("darkToggle").onclick=()=>{
+document.body.classList.toggle("dark");
+};
+
+/* ===========================================
+SCROLL TOP
+=========================================== */
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+topBtn.style.display=
+window.scrollY>400 ? "block":"none";
+});
+
+topBtn.onclick=()=>{
+window.scrollTo({top:0,behavior:"smooth"});
+};
+
+/* ===========================================
+MOBILE MENU
+=========================================== */
+document.getElementById("menuToggle").onclick=()=>{
+document.getElementById("navLinks").classList.toggle("active");
+};
+</script>
+
+</body>
+</html>
